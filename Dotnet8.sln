@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Other stuff", "Other stuff", "{A45B49C1-A465-4745-9D94-D440576BE8E4}"
 	ProjectSection(SolutionItems) = preProject
-		index.md = index.md
+		readme.md = readme.md
 	EndProjectSection
 EndProject
 Global
