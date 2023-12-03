@@ -1,6 +1,6 @@
 # What's new in .net 8
 
-## C#
+## C# 12
 
 ### Primary constructors
 
@@ -53,6 +53,8 @@ int[] moreNumbers = [0, ..numbers, 6, 7, 8, 9]; // Note the .. operator
 ```
 
 ### Switch expressions
+
+(Actually C# 11, but still worth mentioning)
 
 ```csharp
 
@@ -119,11 +121,84 @@ if (name == null)
 ```
 
 ## Blazor
+
 * Unified web app template
 * Static server side rendering
 
 ## Aspire
-* Simplify orchestration for containers and microservices
-* Add services like Redis, RabbitMQ, and Postgres
-* Export manifest for deployment
-* Azure Developer CLI support to deploy to Azure
+
+### Orchestration
+
+.NET Aspire provides features for running and connecting multi-project applications and their dependencies.
+
+* **App composition**: Specify the .net projects, containers, and cloud resources that make up your app.
+* **Service discovery and connection string management**: The app host manages injecting the right connection strings
+  and service discovery information to simplify the developer experience.
+
+```bash
+dotnet workload install aspire
+```
+
+```csharp
+// Create a distributed application builder given the command line arguments.
+var builder = DistributedApplication.CreateBuilder(args);
+
+// Add a Redis container to the application.
+var cache = builder.AddRedisContainer("cache");
+
+// Add the frontend project to the application and configure it to use the 
+// Redis container, defined as a referenced dependency.
+builder.AddProject<Projects.MyFrontend>("frontend")
+       .WithReference(cache);
+```
+
+### Components
+
+[.NET Aspire components](https://learn.microsoft.com/en-us/dotnet/aspire/components-overview?tabs=dotnet-cli) are NuGet
+packages for commonly used services, such as Redis or Postgres, with standardized
+interfaces ensuring they connect consistently and seamlessly with your app.
+
+Components automatically setup **Logging**, **Tracing**, **Metrics** and **Health Checks**.
+
+Components also enable **Resiliency** and **Circuit Breaking**.
+
+
+Example of components:
+* PostgreSQL (with EF Core)
+* SQL Server (with EF Core)
+* CosmosDB
+* Redis
+* Redis Output Caching
+* ServiceBus
+* Blob Storage
+* Storage Queues
+* RabbitMQ
+
+```bash
+dotnet add package Aspire.Npgsql --prerelease
+```
+
+```csharp
+builder.AddNpgsqlDataSource("PostgreSqlConnection")
+```
+
+AppSettings.json
+```json
+{
+  "ConnectionStrings": {
+    "PostgreSqlConnection": "Host=myserver;Database=test"
+  }
+}
+```
+
+```csharp
+public class ExampleService(NpgsqlDataSource dataSource)
+{
+}
+```
+
+### Tooling
+
+.NET Aspire comes with project templates and tooling experiences for Visual Studio and the dotnet CLI help you create
+and interact with .NET Aspire apps.
+
