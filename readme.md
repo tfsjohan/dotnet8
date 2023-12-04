@@ -14,8 +14,8 @@ public class Person
         Age = age;
     }
     
-    public string Name { get; }
-    public int Age { get; }
+    public string Name { get; set; }
+    public int Age { get; set; }
 }
 ```
 
@@ -23,8 +23,8 @@ public class Person
 // New way
 public class Person(string name, int age)
 {
-    public string Name { get; init; }
-    public int Age { get; init; }
+    public string Name { get; set; } = name;
+    public int Age { get; set; } = age;
 }
 ```
 
@@ -83,9 +83,13 @@ public string Suffix(int number)
 public string Family(string[] names) {
     return names switch
     {
+        // Array contains exactly one element
         [name] => $"{name} is an only child",
+        // Array contains exactly two elements
         [child1, child2] => $"The family has two children: {child1} and {child2}",
+        // Array contains more than two elements, but less than four
         [child1, ..others] when others.length < 4 => $"{child1} is the oldest child and has {others.Length} siblings",
+        // "else" case
         _ => "The family is too big to keep track of"
     };
 }
@@ -201,4 +205,31 @@ public class ExampleService(NpgsqlDataSource dataSource)
 
 .NET Aspire comes with project templates and tooling experiences for Visual Studio and the dotnet CLI help you create
 and interact with .NET Aspire apps.
+
+### Deploying to Azure
+
+Make sure to be in the AppHost project folder.
+
+```bash
+azd init
+```
+
+```bash
+azd up
+```
+
+To deploy code changes, run:
+```bash
+azd deploy
+```
+
+To deploy infrastructure changes, run:
+```bash
+azd provition
+```
+
+To delete all infra, run:
+```bash
+azd down
+```
 

@@ -6,7 +6,6 @@ var api = builder.AddProject<Projects.Api>("api")
     .WithReference(redis);
 
 builder.AddProject<Projects.Frontend>("frontend")
-    .WithReference(api)
-    .WithReference(redis);
+    .WithReference(api);
 
 builder.Build().Run();

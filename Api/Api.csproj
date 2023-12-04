@@ -15,12 +15,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="..\.dockerignore">
-        <Link>.dockerignore</Link>
-      </Content>
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\Dotnet8.ServiceDefaults\Dotnet8.ServiceDefaults.csproj" />
     </ItemGroup>
 
