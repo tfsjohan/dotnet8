@@ -230,6 +230,12 @@ To deploy infrastructure changes, run:
 azd provision
 ```
 
+To create Github Actions, run:
+```bash
+mkdir .github/workflows
+azd pipeline config 
+```
+
 To delete all infra, run:
 ```bash
 azd down
