@@ -208,8 +208,6 @@ and interact with .NET Aspire apps.
 
 ### Deploying to Azure
 
-Make sure to be in the AppHost project folder.
-
 ```bash
 azd init
 ```
@@ -223,9 +221,13 @@ To deploy code changes, run:
 azd deploy
 ```
 
+(If you get an error when deploying, make sure to login in to the container registry with:
+az acr login -n <registry name>)
+
+
 To deploy infrastructure changes, run:
 ```bash
-azd provition
+azd provision
 ```
 
 To delete all infra, run:
