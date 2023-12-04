@@ -8,7 +8,4 @@ var api = builder.AddProject<Projects.Api>("api")
 builder.AddProject<Projects.Frontend>("frontend")
     .WithReference(api);
 
-builder.AddProject<Projects.Frontend_Client>("frontend_client");
-    
-
 builder.Build().Run();

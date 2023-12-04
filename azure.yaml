@@ -1,8 +1,0 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
-
-name: Dotnet8
-services:  
-  app:
-    language: dotnet
-    project: ./Dotnet8.AppHost/Dotnet8.AppHost.csproj
-    host: containerapp

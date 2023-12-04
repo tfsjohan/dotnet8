@@ -232,7 +232,7 @@ azd provision
 
 To create Github Actions, run:
 ```bash
-mkdir .github/workflows
+mkdir .github/workflow
 azd pipeline config 
 ```
 
