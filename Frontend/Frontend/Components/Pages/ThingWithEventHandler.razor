@@ -1,0 +1,13 @@
+<button class="btn btn-success" @onclick="OnClick">Randomize</button>
+
+@code {
+    [Parameter]
+    public EventCallback<int> OnClickCallBack { get; set; }
+
+    private void OnClick()
+    {
+        Random rand = new Random();
+        OnClickCallBack.InvokeAsync(rand.Next(0,100));
+    }
+
+}

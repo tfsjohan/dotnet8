@@ -1,4 +1,5 @@
 @page "/PassingProps"
+@rendermode InteractiveServer
 
 <PageTitle>PassingProps</PageTitle>
 
@@ -9,3 +10,17 @@
     Description="This is a very good product! Buy it now."
     Image="/favicon.png"/>
 
+<hr />
+
+<ThingWithEventHandler OnClickCallBack="ClickCallBack"/>
+
+<p>The random number is: @randomNr</p>
+
+@code {
+    int randomNr = 0;
+
+    public void ClickCallBack(int nr)
+    {
+        randomNr = nr;
+    }
+}
