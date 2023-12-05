@@ -2,6 +2,7 @@ using Frontend.Client.Pages;
 using Frontend.Components;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Logging.AddConsole();
 
 builder.AddServiceDefaults();
 

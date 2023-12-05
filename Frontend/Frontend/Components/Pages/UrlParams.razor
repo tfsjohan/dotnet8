@@ -1,0 +1,14 @@
+@page "/urlparams/{Product?}"
+<PageTitle>Router parameters</PageTitle>
+
+<p>Product: @(Product ?? "No product")</p>
+
+<p>Size: @(Size ?? "Nothing from querystring")</p>
+
+@code {
+    [Parameter] 
+    public string? Product { get; set; }
+    
+    [SupplyParameterFromQuery] 
+    public string? Size { get; set; }
+}

@@ -1,0 +1,27 @@
+@page "/navigating"
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+
+<PageTitle>Navigating</PageTitle>
+
+<p>
+    <NavLink href="urlparams/tshirt">Link to another page</NavLink>
+</p>
+
+<p>
+    <button type="button"
+            class="btn btn-primary" 
+            @onclick="NavigateToTshirt">
+        Navigate with OnClick
+    </button>
+</p>
+
+@code {
+
+    private void NavigateToTshirt()
+    {
+        // Make sure to use @rendermode InteractiveServer or Wasm
+        NavigationManager.NavigateTo("/urlparams/tshirt");
+    }
+
+}

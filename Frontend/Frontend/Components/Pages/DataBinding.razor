@@ -1,0 +1,50 @@
+@page "/DataBinding"
+@inject ILogger<DataBinding> Logger;
+@rendermode InteractiveServer
+
+<PageTitle>DataBinding</PageTitle>
+<EditForm FormName="personForm" Model="@Model" OnSubmit="OnSubmit">
+    <InputText
+        @bind-Value="Model!.FirstName"
+        placeholder="First name"/>
+
+    <InputText
+        @bind-Value="Model!.LastName"
+        placeholder="Last name"/>
+    
+    <button type="submit">Save</button>
+</EditForm>
+
+<hr />
+<p>
+    Hello @Model!.FirstName @Model!.LastName
+</p>
+
+@code {
+
+    [SupplyParameterFromForm]
+    public Person? Model { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Model ??= new()
+        {
+            FirstName = "",
+            LastName = ""
+        };
+    }
+    
+    void OnSubmit()
+    {
+        Logger.LogInformation("Submitted: {FirstName} {LastName}", 
+            Model.FirstName, 
+            Model.LastName);
+    }
+
+    public class Person
+    {
+        public required string FirstName { get; set; }
+        public required string LastName { get; set; }
+    }
+
+}
