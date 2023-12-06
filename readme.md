@@ -143,6 +143,10 @@ if (name == null)
 * Unified web app template
 * Static server side rendering
 
+![New Blazor Project](new_blazor_project.png)
+
+![Interactivity mode](interactivity_mode.png)
+
 ## Aspire
 
 ### Orchestration
@@ -152,6 +156,8 @@ if (name == null)
 * **App composition**: Specify the .net projects, containers, and cloud resources that make up your app.
 * **Service discovery and connection string management**: The app host manages injecting the right connection strings
   and service discovery information to simplify the developer experience.
+
+![Aspire](aspire_support.png)
 
 ```bash
 dotnet workload install aspire
