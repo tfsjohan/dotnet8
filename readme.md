@@ -28,8 +28,22 @@ public class Person(string name, int age)
 }
 ```
 
-```csharp
-// Perfect for dependency injection  
+Perfect for dependency injection
+
+```csharp  
+public class UserController
+{
+    private readonly UserService _userService;
+    private readonly ILogger<UserController> _logger;
+    
+    public UserController(UserService userService, ILogger<UserController> logger) {
+        _userService = userService;
+        _logger = logger;
+    }
+}
+```
+
+```csharp  
 public class UserController(UserService userService, ILogger<UserController> logger)
 {
 }
