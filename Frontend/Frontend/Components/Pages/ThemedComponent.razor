@@ -1,0 +1,17 @@
+@rendermode InteractiveServer
+
+<div style="background: @Theme?.Theme.BackgroundColor; color:  @Theme?.Theme.ForegroundColor;">
+    <h1>Hello @Theme?.Name Theme!</h1>
+    <p>Lorem ipsum</p>
+</div>
+
+<button @onclick="OnToggleTheme">Toggle theme</button>
+
+@code {
+    [CascadingParameter] protected ThemeProvider.ThemeProviderValue? Theme { get; set; }
+
+    void OnToggleTheme()
+    {
+        Theme?.SetTheme(Theme?.Name == "Dark" ? "Light" : "Dark");
+    }
+}

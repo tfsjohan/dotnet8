@@ -2,12 +2,14 @@
 
 @code {
     [Parameter]
-    public EventCallback<int> OnRandomNumber { get; set; }
+    public int Nr { get; set; }
+
+    [Parameter]
+    public EventCallback<int> NrChanged { get; set; }
 
     private void OnClick()
     {
         Random rand = new Random();
-        OnRandomNumber.InvokeAsync(rand.Next(0,100));
+        NrChanged.InvokeAsync(rand.Next(0,100));
     }
-
 }

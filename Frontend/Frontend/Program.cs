@@ -1,5 +1,6 @@
 using Frontend.Client.Pages;
 using Frontend.Components;
+using Frontend.Components.Pages;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Logging.AddConsole();
@@ -15,6 +16,8 @@ builder.Services.AddHttpClient<Frontend.WeatherApiClient>(client =>
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+// builder.Services.AddCascadingValue(x => new ThemeProvider.ThemeProviderValue());
 
 var app = builder.Build();
 

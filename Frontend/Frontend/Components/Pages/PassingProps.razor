@@ -12,14 +12,14 @@
 
 <hr />
 
-<ThingWithEventHandler OnClickCallBack="ClickCallBack"/>
+<ThingWithEventHandler OnRandomNumber="RandomNumberCallback"/>
 
 <p>The random number is: @randomNr</p>
 
 @code {
     int randomNr = 0;
 
-    public void ClickCallBack(int nr)
+    public void RandomNumberCallback(int nr)
     {
         randomNr = nr;
     }

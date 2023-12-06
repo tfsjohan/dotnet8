@@ -1,0 +1,14 @@
+@page "/databinding"
+@rendermode InteractiveServer
+
+<PageTitle>DataBindingParent</PageTitle>
+
+<h3>EventHandler</h3>
+
+<DataBindingChild @bind-Nr=randomNr></DataBindingChild>
+
+<p>The random number is: @randomNr</p>
+
+@code {
+    private int randomNr = 0;
+}
