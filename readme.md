@@ -1,4 +1,27 @@
+#
+
+#
+
+#
+
+
+
 # What's new in .net 8
+ 
+# 
+ 
+#
+
+#
+
+#
+
+#
+
+
+
+
+
 
 ## C# 12
 
@@ -232,9 +255,20 @@ and interact with .NET Aspire apps.
 azd init
 ```
 
+![azd init](azd-init-start.png)
+
+![azd init](azd-init-projects.png)
+
+![azd init](azd-init-ingress.png)
+
+![azd init](azd-init-complete.png)
+
+
 ```bash
 azd up
 ```
+
+![Result of azd up](azd-deploy-complete.png)
 
 To deploy code changes, run:
 ```bash
