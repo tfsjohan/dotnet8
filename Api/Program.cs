@@ -47,7 +47,7 @@ app.MapGet("/weatherforecast", () =>
     .WithOpenApi()
     .CacheOutput(x =>
     {
-        x.Expire(TimeSpan.FromSeconds(10));
+        x.Expire(TimeSpan.FromSeconds(5));
     });
 
 app.Run();

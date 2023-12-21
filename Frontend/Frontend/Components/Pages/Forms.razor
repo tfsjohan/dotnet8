@@ -1,9 +1,11 @@
 @page "/forms"
+@using System.ComponentModel.DataAnnotations
 @inject ILogger<Forms> Logger;
 @rendermode InteractiveServer
 
 <PageTitle>DataBinding</PageTitle>
 <EditForm FormName="personForm" Model="@Model" OnSubmit="OnSubmit">
+    <ValidationSummary/>
     <InputText
         @bind-Value="Model!.FirstName"
         placeholder="First name"/>
@@ -11,7 +13,7 @@
     <InputText
         @bind-Value="Model!.LastName"
         placeholder="Last name"/>
-    
+
     <button type="submit">Save</button>
 </EditForm>
 
@@ -36,13 +38,15 @@
     
     void OnSubmit()
     {
-        Logger.LogInformation("Submitted: {FirstName} {LastName}", 
-            Model.FirstName, 
-            Model.LastName);
+        Logger.LogInformation(
+            "Submitted: {FirstName} {LastName}", 
+            Model?.FirstName, 
+            Model?.LastName);
     }
 
     public class Person
     {
+        [MaxLength(20)]
         public required string FirstName { get; set; }
         public required string LastName { get; set; }
     }

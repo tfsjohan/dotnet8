@@ -7,10 +7,8 @@ builder.Logging.AddConsole();
 
 builder.AddServiceDefaults();
 
-builder.Services.AddHttpClient<Frontend.WeatherApiClient>(client =>
-{
-        client.BaseAddress = new Uri("http://api");
-    });
+builder.Services.AddHttpClient<Frontend.WeatherApiClient>(
+    client => { client.BaseAddress = new Uri("http://api"); });
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
