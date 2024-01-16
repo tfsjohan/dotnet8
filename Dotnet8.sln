@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Other stuff", "Other stuff", "{A45B49C1-A465-4745-9D94-D440576BE8E4}"
 	ProjectSection(SolutionItems) = preProject
-		readme.md = readme.md
+		Aspire.md = Aspire.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dotnet8.AppHost", "Dotnet8.AppHost\Dotnet8.AppHost.csproj", "{16684CA4-6D6A-4DDD-A487-A642CA5E7E09}"
